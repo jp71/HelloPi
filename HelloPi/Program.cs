@@ -1,13 +1,12 @@
 ﻿using System;
-using static System.Console;
 
 namespace HelloPi
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            WriteLine("Hello World!");
+            Console.WriteLine("Hello World!");
         }
     }
 }
