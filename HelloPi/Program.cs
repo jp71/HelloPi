@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using static System.Console;
 
 namespace HelloPi
 {
@@ -6,7 +8,9 @@ namespace HelloPi
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            WriteLine("Hello World!");
+            string filePath = Path.GetFullPath(Directory.GetCurrentDirectory());
+            WriteLine($"Current directtory: {filePath}");
         }
     }
 }
