@@ -1,5 +1,6 @@
 {
-  "test": [ "Hello", "Pi"
-
+  "Welcome": [
+    "Hello",
+    "Pi"
   ]
 }

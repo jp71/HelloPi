@@ -1,20 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using static System.Console;
-using Newtonsoft.Json;
 
 namespace HelloPi
 {
     class Program
     {
-        struct ConfigTest
-        {
-            public List<string> text;
-        }
 
         List<string> strList = new List<string>();
-        
+
         static void Main(string[] args)
         {
             WriteLine("Hello World!");
@@ -23,20 +19,28 @@ namespace HelloPi
             string configFile = Path.Combine(filePath, "config.json");
             WriteLine($"Config file: {configFile}");
 
-            string json = File.ReadAllText(configFile);
-            WriteLine($"Json: {json}");
-            ConfigTest config = JsonConvert.DeserializeObject<ConfigTest>(json);
+            string jsonString = File.ReadAllText(configFile);
+            WriteLine($"Json: {jsonString}");
+            ConfigTest config = new ConfigTest();
+
+            config = JsonConvert.DeserializeObject<ConfigTest>(jsonString);
 
             int i = 0;
-            foreach(string s in config.text)
+            foreach (string s in config.Welcome)
             {
                 i++;
-                WriteLine("{i}. {s}");
+                WriteLine($"{i}. {s}");
             }
 
         }
 
 
     }
-        
+
+    public class ConfigTest
+    {
+        public List<string> Welcome;
+    }
+
+
 }
